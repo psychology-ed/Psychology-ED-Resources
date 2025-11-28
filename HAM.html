@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Psychology Honours Application Mark Calculator 2025</title>
+  <title>Honours Application Mark (HAM) Calculator for Honours in Psychology</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -132,10 +132,9 @@
   </style>
 </head>
 <body>
-  <h1>Psychology Honours Application Mark Calculator (2025)</h1>
+  <h1>Honours Application Mark (HAM) Calculator for Honours in Psychology</h1>
   <p>
-    Enter your <strong>final grades</strong> (e.g., 75, 82.5) for each completed unit.
-    Leave any units you have not completed <strong>blank</strong>.
+    Enter your <strong>final mark (or expected mark)</strong> for each relevant unit.
   </p>
 
   <table>
@@ -158,9 +157,9 @@
       <th></th>
       <th colspan="2">Third Year</th>
       <th></th>
-      <th colspan="2">Third Year (Best / Average)</th>
+      <th colspan="2">Third Year</th>
       <th></th>
-      <th rowspan="2">Honours Application Mark</th>
+      <th rowspan="2">HAM</th>
     </tr>
     <tr class="header-sub">
       <th>Unit</th>
@@ -169,8 +168,8 @@
       <th>Unit</th>
       <th>Final Grade</th>
       <th></th>
-      <th>Summary</th>
-      <th>Value</th>
+      <th></th>
+      <th></th>
       <th></th>
     </tr>
 
@@ -178,13 +177,13 @@
     <tr>
       <td class="label">PSYC2012 or PSYC5212</td>
       <td class="input-cell">
-        <input type="number" min="0" max="100" step="0.1" id="sec_psyc2012" class="mark-input">
+        <input type="number" min="0" max="100" step="1" id="sec_psyc2012" class="mark-input">
       </td>
       <td></td>
 
       <td class="label">PSYC3010 or PSYC5310</td>
       <td class="input-cell">
-        <input type="number" min="0" max="100" step="0.1" id="th_psyc3010" class="mark-input">
+        <input type="number" min="0" max="100" step="1" id="th_psyc3010" class="mark-input">
       </td>
       <td></td>
 
@@ -198,13 +197,13 @@
     <tr>
       <td class="label">PSYC2X15 or PSYC5215</td>
       <td class="input-cell">
-        <input type="number" min="0" max="100" step="0.1" id="sec_psyc2x15" class="mark-input">
+        <input type="number" min="0" max="100" step="1" id="sec_psyc2x15" class="mark-input">
       </td>
       <td></td>
 
       <td class="label">PSYC3X11</td>
       <td class="input-cell">
-        <input type="number" min="0" max="100" step="0.1" id="th_psyc3x11" class="mark-input">
+        <input type="number" min="0" max="100" step="1" id="th_psyc3x11" class="mark-input">
       </td>
       <td></td>
 
@@ -216,13 +215,13 @@
     <tr>
       <td class="label">PSYC2016 or PSYC5216</td>
       <td class="input-cell">
-        <input type="number" min="0" max="100" step="0.1" id="sec_psyc2016" class="mark-input">
+        <input type="number" min="0" max="100" step="1" id="sec_psyc2016" class="mark-input">
       </td>
       <td></td>
 
       <td class="label">PSYC3012</td>
       <td class="input-cell">
-        <input type="number" min="0" max="100" step="0.1" id="th_psyc3012" class="mark-input">
+        <input type="number" min="0" max="100" step="1" id="th_psyc3012" class="mark-input">
       </td>
       <td></td>
 
@@ -234,13 +233,13 @@
     <tr>
       <td class="label">PSYC2017 or PSYC5217</td>
       <td class="input-cell">
-        <input type="number" min="0" max="100" step="0.1" id="sec_psyc2017" class="mark-input">
+        <input type="number" min="0" max="100" step="1" id="sec_psyc2017" class="mark-input">
       </td>
       <td></td>
 
       <td class="label">PSYC3X13</td>
       <td class="input-cell">
-        <input type="number" min="0" max="100" step="0.1" id="th_psyc3x13" class="mark-input">
+        <input type="number" min="0" max="100" step="1" id="th_psyc3x13" class="mark-input">
       </td>
       <td></td>
 
@@ -256,7 +255,7 @@
 
       <td class="label">PSYC3X14</td>
       <td class="input-cell">
-        <input type="number" min="0" max="100" step="0.1" id="th_psyc3x14" class="mark-input">
+        <input type="number" min="0" max="100" step="1" id="th_psyc3x14" class="mark-input">
       </td>
       <td></td>
 
@@ -273,7 +272,7 @@
 
       <td class="label">PSYC3015</td>
       <td class="input-cell">
-        <input type="number" min="0" max="100" step="0.1" id="th_psyc3015" class="mark-input">
+        <input type="number" min="0" max="100" step="1" id="th_psyc3015" class="mark-input">
       </td>
       <td></td>
 
@@ -289,7 +288,7 @@
 
       <td class="label">PSYC3X16</td>
       <td class="input-cell">
-        <input type="number" min="0" max="100" step="0.1" id="th_psyc3x16" class="mark-input">
+        <input type="number" min="0" max="100" step="1" id="th_psyc3x16" class="mark-input">
       </td>
       <td></td>
 
@@ -306,7 +305,7 @@
 
       <td class="label">PSYC3017</td>
       <td class="input-cell">
-        <input type="number" min="0" max="100" step="0.1" id="th_psyc3017" class="mark-input">
+        <input type="number" min="0" max="100" step="1" id="th_psyc3017" class="mark-input">
       </td>
       <td></td>
 
@@ -323,7 +322,7 @@
 
       <td class="label">PSYC3018 or PSYC5318</td>
       <td class="input-cell">
-        <input type="number" min="0" max="100" step="0.1" id="th_psyc3018" class="mark-input">
+        <input type="number" min="0" max="100" step="1" id="th_psyc3018" class="mark-input">
       </td>
       <td></td>
 
@@ -340,7 +339,7 @@
 
       <td class="label">PSYC3020</td>
       <td class="input-cell">
-        <input type="number" min="0" max="100" step="0.1" id="th_psyc3020" class="mark-input">
+        <input type="number" min="0" max="100" step="1" id="th_psyc3020" class="mark-input">
       </td>
       <td></td>
 
@@ -357,7 +356,7 @@
 
       <td class="label">PSYC3888</td>
       <td class="input-cell">
-        <input type="number" min="0" max="100" step="0.1" id="th_psyc3888" class="mark-input">
+        <input type="number" min="0" max="100" step="1" id="th_psyc3888" class="mark-input">
       </td>
       <td></td>
 
@@ -374,7 +373,7 @@
 
       <td class="label">HPSC3023</td>
       <td class="input-cell">
-        <input type="number" min="0" max="100" step="0.1" id="th_hpsc3023" class="mark-input">
+        <input type="number" min="0" max="100" step="1" id="th_hpsc3023" class="mark-input">
       </td>
       <td></td>
 
@@ -386,12 +385,9 @@
   </table>
 
   <div class="controls">
-    <button type="button" onclick="calculateMark()">Calculate Honours Application Mark</button>
-    <button type="button" onclick="clearAll()">Clear all</button>
-    <span class="note">
-      The calculation follows the same rules as the original Excel sheet:
-      ⅓ Second Year Average + ⅔ Third Year Average (of your best up to 4 third-year marks).
-    </span>
+    <button type="button" onclick="calculateMark()">Update</button>
+    <button type="button" onclick="clearAll()">Clear</button>
+    <span class="note"></span>
   </div>
 
   <script>
