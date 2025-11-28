@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Psychology Honours Application Mark Calculator 2025</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: 40px auto;
+      line-height: 1.4;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      table-layout: fixed;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      border: 1px solid #cccccc;
+      padding: 6px 8px;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #f0f0f0;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    td.label {
+      background-color: #f9f9f9;
+      font-weight: 500;
+    }
+
+    td.center {
+      text-align: center;
+    }
+
+    td.result {
+      background-color: #fffbe6;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    input.mark-input {
+      width: 100%;
+      box-sizing: border-box;
+      border: none;
+      padding: 4px;
+      text-align: center;
+      background-color: #ffffff;
+    }
+
+    input.mark-input:focus {
+      outline: 2px solid #4a90e2;
+    }
+
+    .input-cell {
+      background-color: #e8f4ff;
+    }
+
+    .controls {
+      margin-top: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 8px 14px;
+      border-radius: 4px;
+      border: 1px solid #888;
+      background-color: #f2f2f2;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    button:hover {
+      background-color: #e5e5e5;
+    }
+
+    .note {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        margin: 10px;
+      }
+      table {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Psychology Honours Application Mark Calculator (2025)</h1>
+  <p>
+    Enter your <strong>final grades</strong> (e.g., 75, 82.5) for each completed unit.
+    Leave any units you have not completed <strong>blank</strong>.
+  </p>
+
+  <table>
+    <colgroup>
+      <col style="width: 18%;">
+      <col style="width: 10%;">
+      <col style="width: 3%;">
+      <col style="width: 18%;">
+      <col style="width: 10%;">
+      <col style="width: 3%;">
+      <col style="width: 13%;">
+      <col style="width: 10%;">
+      <col style="width: 3%;">
+      <col style="width: 12%;">
+    </colgroup>
+
+    <!-- Header rows mimicking Excel structure -->
+    <tr>
+      <th colspan="2">Second Year</th>
+      <th></th>
+      <th colspan="2">Third Year</th>
+      <th></th>
+      <th colspan="2">Third Year (Best / Average)</th>
+      <th></th>
+      <th rowspan="2">Honours Application Mark</th>
+    </tr>
+    <tr>
+      <th>Unit</th>
+      <th>Final Grade</th>
+      <th></th>
+      <th>Unit</th>
+      <th>Final Grade</th>
+      <th></th>
+      <th>Summary</th>
+      <th>Value</th>
+      <th></th>
+    </tr>
+
+    <!-- Main rows -->
+    <tr>
+      <td class="label">PSYC2012 or PSYC5212</td>
+      <td class="input-cell">
+        <input type="number" min="0" max="100" step="0.1" id="sec_psyc2012" class="mark-input">
+      </td>
+      <td></td>
+
+      <td class="label">PSYC3010 or PSYC5310</td>
+      <td class="input-cell">
+        <input type="number" min="0" max="100" step="0.1" id="th_psyc3010" class="mark-input">
+      </td>
+      <td></td>
+
+      <td class="label">First Best</td>
+      <td class="result" id="best1"></td>
+      <td></td>
+
+      <td class="result" id="finalMark" rowspan="6" style="font-size: 1.1rem;"></td>
+    </tr>
+
+    <tr>
+      <td class="label">PSYC2X15 or PSYC5215</td>
+      <td class="input-cell">
+        <input type="number" min="0" max="100" step="0.1" id="sec_psyc2x15" class="mark-input">
+      </td>
+      <td></td>
+
+      <td class="label">PSYC3X11</td>
+      <td class="input-cell">
+        <input type="number" min="0" max="100" step="0.1" id="th_psyc3x11" class="mark-input">
+      </td>
+      <td></td>
+
+      <td class="label">Second Best</td>
+      <td class="result" id="best2"></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td class="label">PSYC2016 or PSYC5216</td>
+      <td class="input-cell">
+        <input type="number" min="0" max="100" step="0.1" id="sec_psyc2016" class="mark-input">
+      </td>
+      <td></td>
+
+      <td class="label">PSYC3012</td>
+      <td class="input-cell">
+        <input type="number" min="0" max="100" step="0.1" id="th_psyc3012" class="mark-input">
+      </td>
+      <td></td>
+
+      <td class="label">Third Best</td>
+      <td class="result" id="best3"></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td class="label">PSYC2017 or PSYC5217</td>
+      <td class="input-cell">
+        <input type="number" min="0" max="100" step="0.1" id="sec_psyc2017" class="mark-input">
+      </td>
+      <td></td>
+
+      <td class="label">PSYC3X13</td>
+      <td class="input-cell">
+        <input type="number" min="0" max="100" step="0.1" id="th_psyc3x13" class="mark-input">
+      </td>
+      <td></td>
+
+      <td class="label">Fourth Best</td>
+      <td class="result" id="best4"></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td class="label">Second Year Average</td>
+      <td class="result" id="secAvg"></td>
+      <td></td>
+
+      <td class="label">PSYC3X14</td>
+      <td class="input-cell">
+        <input type="number" min="0" max="100" step="0.1" id="th_psyc3x14" class="mark-input">
+      </td>
+      <td></td>
+
+      <td class="label">Third Year Average</td>
+      <td class="result" id="thirdAvg"></td>
+      <td></td>
+    </tr>
+
+    <!-- Remaining third-year units -->
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+
+      <td class="label">PSYC3015</td>
+      <td class="input-cell">
+        <input type="number" min="0" max="100" step="0.1" id="th_psyc3015" class="mark-input">
+      </td>
+      <td></td>
+
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+
+      <td class="label">PSYC3X16</td>
+      <td class="input-cell">
+        <input type="number" min="0" max="100" step="0.1" id="th_psyc3x16" class="mark-input">
+      </td>
+      <td></td>
+
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+
+      <td class="label">PSYC3017</td>
+      <td class="input-cell">
+        <input type="number" min="0" max="100" step="0.1" id="th_psyc3017" class="mark-input">
+      </td>
+      <td></td>
+
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+
+      <td class="label">PSYC3018 or PSYC5318</td>
+      <td class="input-cell">
+        <input type="number" min="0" max="100" step="0.1" id="th_psyc3018" class="mark-input">
+      </td>
+      <td></td>
+
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+
+      <td class="label">PSYC3020</td>
+      <td class="input-cell">
+        <input type="number" min="0" max="100" step="0.1" id="th_psyc3020" class="mark-input">
+      </td>
+      <td></td>
+
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+
+      <td class="label">PSYC3888</td>
+      <td class="input-cell">
+        <input type="number" min="0" max="100" step="0.1" id="th_psyc3888" class="mark-input">
+      </td>
+      <td></td>
+
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+
+      <td class="label">HPSC3023</td>
+      <td class="input-cell">
+        <input type="number" min="0" max="100" step="0.1" id="th_hpsc3023" class="mark-input">
+      </td>
+      <td></td>
+
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+
+  <div class="controls">
+    <button type="button" onclick="calculateMark()">Calculate Honours Application Mark</button>
+    <button type="button" onclick="clearAll()">Clear all</button>
+    <span class="note">
+      The calculation follows the same rules as the original Excel sheet:
+      ⅓ Second Year Average + ⅔ Third Year Average (of your best up to 4 third-year marks).
+    </span>
+  </div>
+
+  <script>
+    function getNumberOrNull(id) {
+      const el = document.getElementById(id);
+      if (!el) return null;
+      const raw = el.value.trim();
+      if (raw === "") return null;
+      const n = parseFloat(raw);
+      return isNaN(n) ? null : n;
+    }
+
+    function calculateMark() {
+      // Second year units
+      const secIds = [
+        "sec_psyc2012",
+        "sec_psyc2x15",
+        "sec_psyc2016",
+        "sec_psyc2017"
+      ];
+
+      // Third year units
+      const thirdIds = [
+        "th_psyc3010",
+        "th_psyc3x11",
+        "th_psyc3012",
+        "th_psyc3x13",
+        "th_psyc3x14",
+        "th_psyc3015",
+        "th_psyc3x16",
+        "th_psyc3017",
+        "th_psyc3018",
+        "th_psyc3020",
+        "th_psyc3888",
+        "th_hpsc3023"
+      ];
+
+      // --- Second Year Average (B9 equivalent) ---
+      const secMarks = secIds
+        .map(getNumberOrNull)
+        .filter(v => v !== null);
+
+      let secAvg = "";
+      if (secMarks.length > 0) {
+        const sum = secMarks.reduce((a, b) => a + b, 0);
+        secAvg = sum / secMarks.length;
+        document.getElementById("secAvg").textContent = secAvg.toFixed(2);
+      } else {
+        document.getElementById("secAvg").textContent = "";
+      }
+
+      // --- Third Year Best 4 and Average (I3:I6, H9 equivalent) ---
+      const thirdMarks = thirdIds
+        .map(getNumberOrNull)
+        .filter(v => v !== null);
+
+      // Reset summary cells
+      document.getElementById("best1").textContent = "";
+      document.getElementById("best2").textContent = "";
+      document.getElementById("best3").textContent = "";
+      document.getElementById("best4").textContent = "";
+      document.getElementById("thirdAvg").textContent = "";
+
+      let thirdAvg = "";
+
+      if (thirdMarks.length > 0) {
+        const sorted = thirdMarks.slice().sort((a, b) => b - a); // descending
+        const maxBest = Math.min(sorted.length, 4);
+
+        if (maxBest >= 1) document.getElementById("best1").textContent = sorted[0].toFixed(2);
+        if (maxBest >= 2) document.getElementById("best2").textContent = sorted[1].toFixed(2);
+        if (maxBest >= 3) document.getElementById("best3").textContent = sorted[2].toFixed(2);
+        if (maxBest >= 4) document.getElementById("best4").textContent = sorted[3].toFixed(2);
+
+        const bestForAvg = sorted.slice(0, maxBest);
+        const sumBest = bestForAvg.reduce((a, b) => a + b, 0);
+        thirdAvg = sumBest / bestForAvg.length;
+        document.getElementById("thirdAvg").textContent = thirdAvg.toFixed(2);
+      }
+
+      // --- Honours Application Mark (K3 equivalent) ---
+      let finalText = "";
+      if (thirdMarks.length > 0) {
+        // In Excel, empty B9 is "" which behaves like 0 in arithmetic
+        const b9 = secAvg === "" ? 0 : secAvg;
+        const h9 = thirdAvg === "" ? 0 : thirdAvg;
+        const overall = (b9 + h9 + h9) / 3;
+        finalText = overall.toFixed(2);
+      }
+
+      document.getElementById("finalMark").textContent = finalText;
+    }
+
+    function clearAll() {
+      const inputs = document.querySelectorAll("input.mark-input");
+      inputs.forEach(input => input.value = "");
+
+      // Clear all computed cells
+      document.getElementById("secAvg").textContent = "";
+      document.getElementById("thirdAvg").textContent = "";
+      document.getElementById("best1").textContent = "";
+      document.getElementById("best2").textContent = "";
+      document.getElementById("best3").textContent = "";
+      document.getElementById("best4").textContent = "";
+      document.getElementById("finalMark").textContent = "";
+    }
+  </script>
+</body>
+</html>
